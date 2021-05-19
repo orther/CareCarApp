@@ -8,7 +8,7 @@
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {
@@ -17,7 +17,10 @@
     "assetBundlePatterns": ["**/*"],
     "android": {
       "package": "co.carecar.carecar_app",
-      "versionCode": 1
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundIcon": "./assets/adaptive-icon.png"
+      }
     },
     "ios": {
       "supportsTablet": true,
