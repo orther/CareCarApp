@@ -7,9 +7,9 @@ interface NativeWebViewProps {
 }
 
 export const NativeWebView = (props: NativeWebViewProps): JSX.Element => {
-  // if (Platform.OS === "web") {
-  //   return <iframe src={props.target} style={styles} />
-  // }
+  if (Platform.OS === "web") {
+    return <iframe src={props.target} style={styles} />
+  }
   return <WebView source={{ uri: props.target }} />
 }
 

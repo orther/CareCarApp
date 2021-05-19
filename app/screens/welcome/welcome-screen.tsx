@@ -4,9 +4,10 @@ import { useNavigation } from "@react-navigation/native"
 import { observer } from "mobx-react-lite"
 import { Button, Header, Screen, Text, Wallpaper } from "../../components"
 import { color, spacing, typography } from "../../theme"
-const bowserLogo = require("./bowser.png")
+// const bowserLogo = require("./bowser.png")
+const carecarLogo = require("./carecar-bar.png")
 
-const FULL: ViewStyle = { flex: 1 }
+const FULL: ViewStyle = { flex: 1, backgroundColor: "#171F46" }
 const CONTAINER: ViewStyle = {
   backgroundColor: color.transparent,
   paddingHorizontal: spacing[4],
@@ -51,6 +52,12 @@ const BOWSER: ImageStyle = {
   marginVertical: spacing[5],
   maxWidth: "100%",
 }
+const CARECAR: ImageStyle = {
+  alignSelf: "center",
+  marginVertical: spacing[5],
+  maxWidth: "100%",
+  resizeMode: "center",
+}
 const CONTENT: TextStyle = {
   ...TEXT,
   color: "#BAB6C8",
@@ -61,15 +68,23 @@ const CONTENT: TextStyle = {
 const CONTINUE: ViewStyle = {
   paddingVertical: spacing[4],
   paddingHorizontal: spacing[4],
-  backgroundColor: "#5D2555",
+  // backgroundColor: "#5D2555",
+  backgroundColor: "#ffffff",
 }
 const CONTINUE_TEXT: TextStyle = {
   ...TEXT,
   ...BOLD,
   fontSize: 13,
   letterSpacing: 2,
+  color: "#171F46",
 }
-const FOOTER: ViewStyle = { backgroundColor: "#20162D", marginBottom: 64 }
+const FOOTER: ViewStyle = {
+  //
+  // backgroundColor: "#20162D",
+  backgroundColor: "#ffffff0e",
+  marginBottom: 64,
+}
+
 const FOOTER_CONTENT: ViewStyle = {
   paddingVertical: spacing[4],
   paddingHorizontal: spacing[4],
@@ -78,10 +93,10 @@ const FOOTER_CONTENT: ViewStyle = {
 export const WelcomeScreen = observer(function WelcomeScreen() {
   const navigation = useNavigation()
   const nextScreen = () => navigation.navigate("demo")
+  const applyCareCarScreen = () => navigation.navigate("apply-carecar")
 
   return (
     <View testID="WelcomeScreen" style={FULL}>
-      <Wallpaper />
       <Screen style={CONTAINER} preset="scroll" backgroundColor={color.transparent}>
         <Header headerTx="welcomeScreen.poweredBy" style={HEADER} titleStyle={HEADER_TITLE} />
         <Text style={TITLE_WRAPPER}>
@@ -89,8 +104,11 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
           <Text style={ALMOST} text="almost" />
           <Text style={TITLE} text="!" />
         </Text>
+        {/*
         <Text style={TITLE} preset="header" tx="welcomeScreen.readyForLaunch" />
         <Image source={bowserLogo} style={BOWSER} />
+        */}
+        <Image source={carecarLogo} style={CARECAR} />
         <Text style={CONTENT}>
           This probably isn't what your app is going to look like. Unless your designer handed you
           this screen and, in that case, congrats! You're ready to ship.
@@ -103,12 +121,21 @@ export const WelcomeScreen = observer(function WelcomeScreen() {
       <SafeAreaView style={FOOTER}>
         <View style={FOOTER_CONTENT}>
           <Button
-            testID="next-screen-button"
+            testID="carecar-screen-button"
             style={CONTINUE}
             textStyle={CONTINUE_TEXT}
-            tx="welcomeScreen.continue"
-            onPress={nextScreen}
+            tx="welcomeScreen.applyCareCar"
+            onPress={applyCareCarScreen}
           />
+          {false && (
+            <Button
+              testID="next-screen-button"
+              style={CONTINUE}
+              textStyle={CONTINUE_TEXT}
+              tx="welcomeScreen.continue"
+              onPress={nextScreen}
+            />
+          )}
         </View>
       </SafeAreaView>
     </View>

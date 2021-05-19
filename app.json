@@ -19,7 +19,7 @@
       "package": "co.carecar.carecar_app",
       "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundIcon": "./assets/adaptive-icon.png"
+        "foregroundImage": "./assets/adaptive-icon.png"
       }
     },
     "ios": {
