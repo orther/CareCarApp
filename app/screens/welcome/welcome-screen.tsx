@@ -47,16 +47,12 @@ const ALMOST: TextStyle = {
   fontSize: 26,
   fontStyle: "italic",
 }
-const BOWSER: ImageStyle = {
-  alignSelf: "center",
-  marginVertical: spacing[5],
-  maxWidth: "100%",
-}
 const CARECAR: ImageStyle = {
   alignSelf: "center",
   marginVertical: spacing[5],
-  maxWidth: "100%",
-  resizeMode: "center",
+  maxWidth: "80%",
+  maxHeight: 160,
+  resizeMode: "contain",
 }
 const CONTENT: TextStyle = {
   ...TEXT,
